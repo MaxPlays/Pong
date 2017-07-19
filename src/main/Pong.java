@@ -27,7 +27,10 @@ public class Pong {
     }
 
     public void update(){
-        t = new Thread(() -> {
+        t = new Thread(new Runnable() {
+
+        @Override
+        public void run(){
             while(going){
                 r.update();
                 l.update();
@@ -38,6 +41,7 @@ public class Pong {
                     e.printStackTrace();
                 }
             }
+        }
         });
         t.run();
     }
