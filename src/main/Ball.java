@@ -58,8 +58,17 @@ public class Ball extends JPanel{
 
         velocityX = targetX - x;
         velocityY = targetY - y;
-        velocityX *= 0.02;
-        velocityY *= 0.02;
+
+        double vX = velocityX;
+        double vY = velocityY;
+
+        double root = Math.sqrt(Math.pow(Math.abs(vX), 2) + Math.pow(Math.abs(vY), 2));
+        vX /= root;
+        vY /= root;
+
+        velocityX = (int)(vX * 8);
+        velocityY = (int)(vY * 8);
+
     }
 
     public void bounce(BounceSide side){
@@ -78,9 +87,9 @@ public class Ball extends JPanel{
     }
 
     public Side hits(){
-        if(x >= 5 && x < 22 && ((y + 5) >= Pong.l.getY()) && ((y + 5) <= (Pong.l.getY() + Pong.l.heigth))){
+        if(x >= Pong.l.x && x <= (Pong.l.x + Pong.l.width) && ((y + 5) >= Pong.l.getY()) && ((y + 5) <= (Pong.l.getY() + Pong.l.heigth))){
             return Side.LEFT_OK;
-        }else if(x < (frame.getWidth() - 4) && x >= (frame.getWidth() - 36) && ((y + 5) >= Pong.r.getY()) && ((y + 5) <= (Pong.r.getY() + Pong.r.heigth))) {
+        }else if(x >= (Pong.r.x - 5) && x <= (Pong.r.x + Pong.r.width) && ((y + 5) >= Pong.r.getY()) && ((y + 5) <= (Pong.r.getY() + Pong.r.heigth))) {
             return Side.RIGHT_OK;
         }else if(x < 5){
             return Side.LEFT;

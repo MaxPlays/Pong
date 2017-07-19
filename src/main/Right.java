@@ -25,6 +25,7 @@ public class Right extends JPanel implements KeyListener{
     }
 
     public void update() {
+        x = frame.getWidth() - 24 - width;
         if((getY() + velocity > 0) & (getY() + heigth + velocity + 30 < frame.getHeight()))
             setY(getY() + velocity);
         setBounds(x, y, width, heigth);
