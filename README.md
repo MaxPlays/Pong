@@ -2,7 +2,7 @@
 The classic game "Pong" in Java
 
 ## Download ##
-You can download the latest build [here](https://guthub.com/MaxPlays/Pong/releases/latest).
+You can download the latest build [here](https://github.com/MaxPlays/Pong/releases/latest).
 ### Requirement ###
 - JRE 1.7 <
 
